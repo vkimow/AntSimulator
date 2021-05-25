@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b71c6bb6-6660-4a1b-b180-20b27e0186e1}</ProjectGuid>
+    <RootNamespace>AntSimulator</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin_int\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin_int\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Game;$(SolutionDir)$(ProjectName)\src\FlatEngine\Core;$(SolutionDir)$(ProjectName)\src\FlatEngine;$(SolutionDir)$(ProjectName)\vendor\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(ProjectName)\vendor\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\src\Game;$(SolutionDir)$(ProjectName)\src\FlatEngine\Core;$(SolutionDir)$(ProjectName)\src\FlatEngine;$(SolutionDir)$(ProjectName)\vendor\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(ProjectName)\vendor\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;winmm.lib;freetype.lib;sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FlatEngine\Actors\Controllers\Camera\CameraController.cpp" />
+    <ClCompile Include="src\FlatEngine\Actors\Controllers\Transform\ScaleController.cpp" />
+    <ClCompile Include="src\FlatEngine\Actors\Controllers\Transform\RotateController.cpp" />
+    <ClCompile Include="src\FlatEngine\Actors\Controllers\Transform\MoveController.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\Tools\ScreenSettings.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\Camera\CameraManager.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\Camera\Camera.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\Tools\FrameSpeed.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Image.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Animation.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Shape.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\Tools\Sprite.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\DeltaMouseWheel.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\DeltaPressable.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorDelta.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorMouse.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\Delta.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\Pressable.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\PressableMouse.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\PressableKey.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\Vector.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorPressable.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputModule.cpp" />
+    <ClCompile Include="src\FlatEngine\App.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\DisplayElement.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Display\DisplayModule.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputElement.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Input\InputHeader.h" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Update\UpdateModule.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Update\UpdateElement.cpp" />
+    <ClCompile Include="src\EntryPoint.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\GameLooper.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Modules\Time\TimeModule.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Simulation\Transformable.cpp" />
+    <ClCompile Include="src\FlatEngine\Core\Tools\Vector\VectorUtils.cpp" />
+    <ClCompile Include="src\FlatEngine\Actors\Controllers\Camera\ZoomController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Camera\ICameraController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\IMoveController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\IRotateController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\IScaleController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\ScaleController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\RotateController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Transform\MoveController.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Camera\IZoomController.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\ModulesHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Time\TimeHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Update\UpdateHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\EventsHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\GlobalFunction.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Camera\CameraController.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\Tools\ScreenSettings.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\Camera\CameraManager.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\Camera\Camera.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\Tools\FrameSpeed.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Image.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Animation.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayElements\Shape.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\Tools\Sprite.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\DeltaMouseWheel.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\DeltaPressable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorDelta.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorMouse.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Delta\Delta.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\Pressable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\PressableMouse.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Press\PressableKey.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\Vector.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElements\Vector\VectorPressable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputModule.h" />
+    <ClInclude Include="src\FlatEngine\App.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\GameLooper.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayElement.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Display\DisplayModule.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Input\InputElement.h" />
+    <ClInclude Include="src\FlatEngine\Core\Simulation\IMovable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Simulation\IRotatable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Simulation\IScalable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Simulation\ITransformable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Simulation\Transformable.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\Action.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Update\UpdateElement.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Update\UpdateModule.h" />
+    <ClInclude Include="src\FlatEngine\Core\Modules\Time\TimeModule.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\MemberFunction.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\Function.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Events\FunctionIdGetter.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\ToolsHeader.h" />
+    <ClInclude Include="src\FlatEngine\Core\Tools\Vector\VectorUtils.h" />
+    <ClInclude Include="src\FlatEngine\Actors\Controllers\Camera\ZoomController.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
